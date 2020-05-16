@@ -22,15 +22,22 @@ int merge(int arr[], int start, int mid, int end) {
 
     while (i < n1 and j < n2) {
         if (left[i] <= right[j]) {
+            c += max(0, k - (start + i));
             arr[k++] = left[i++];
         } else {
+            c += max(0, k - (mid + 1 + j));
             arr[k++] = right[j++];
-            c += mid - i;
         }
     }
 
-    while (i < n1) arr[k++] = left[i++];
-    while (j < n2) arr[k++] = right[j++];
+    while (i < n1) {
+        c += max(0, k - (start + i));
+        arr[k++] = left[i++];
+    }
+    while (j < n2) {
+        c += max(0, k - (mid + 1 + j));
+        arr[k++] = right[j++];
+    }
 
     return c;
 }

@@ -22,16 +22,23 @@ void radix_sort(int arr[], int n) {
 
     for (int digit = 1; ceil / digit > 0; digit *= 10) {
         radix_counting_sort(arr, n, digit);
+        for (int i = 0; i < n; i++) {
+            int n = arr[i];
+            printf("%d ", n);
+        }
+        printf("\n");
     }
+
 }
 
 int main() {
-    int arr[] = {38, 27, 43, 41, 47, 45, 3, 9, 82, 10};
+
+    int arr[] = { 81, 434, 261, 145, 17, 32 };
 
     for (int n : arr) printf("%d ", n);
     printf("\n");
 
-    radix_sort(arr, 10);
+    radix_sort(arr, 6);
 
     for (int n : arr) printf("%d ", n);
     printf("\n");

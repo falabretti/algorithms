@@ -55,7 +55,7 @@ Node* remove(Node* root, int data) {
 
         Node* temp = find_max(root->left);
         root->data = temp->data;
-        remove(root->left, root->data);
+        root->left = remove(root->left, root->data);
     }
 
     return root;
